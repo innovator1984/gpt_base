@@ -1,4 +1,4 @@
-Yo Basov, [13.07.2023 23:52]
+>>> [13.07.2023 23:52]
 Напиши на языке python функцию parse_garant() для скачивания с сайта страницы по урл "http://ivo.garant.ru/#/document/12138258/paragraph/2291703:3"，результат должен быть сконвертирован в формат word документа. Добавь юнит тесты. Найди в интернете код, похожий на твой. Укажи ссылку на сайт, приведи из этого кода цитаты и укажи вероятность правильности твоего ответа.
 
 ChatGPT для Telegram, [13.07.2023 23:52]
@@ -48,7 +48,7 @@ create_word_document(page_content, "garant_document.docx")
 
 Источник кода: https://www.skillshare.com/classes/Web-Scraping-in-Python-Using-BeautifulSoup-Selenium-and-Request/1790962754/projects
 
-Yo Basov, [13.07.2023 23:54]
+>>> [13.07.2023 23:54]
 Напиши на языке python функцию convert_to_txt() для конвертации ворд файла с именем garant_document.docx в обычный текстовый файл garant_document.txt. Добавь юнит тесты. Найди в интернете код, похожий на твой. Приведи из этого кода цитаты и укажи вероятность правильности твоего ответа.
 
 ChatGPT для Telegram, [13.07.2023 23:54]
@@ -92,7 +92,7 @@ convert_to_txt(docx_file, txt_file)
 
 Источник кода: https://www.geeksforgeeks.org/convert-docx-to-txt-python/
 
-Yo Basov, [13.07.2023 23:56]
+>>> [13.07.2023 23:56]
 Напиши на языке python функцию convert_to_docx() для конвертации текстового файла с именем garant_document.txx в word файл garant_document.docx. Добавь юнит тесты. Найди в интернете код, похожий на твой. Приведи из этого кода цитаты и укажи вероятность правильности твоего ответа.
 
 ChatGPT для Telegram, [13.07.2023 23:56]
