@@ -4,7 +4,7 @@
 
 # !pip install faiss - cpu langchain openai tiktoken
 
-class draft03_litetask():
+class draft03_lesson():
     def __init__(self):
         pass
 
@@ -521,4 +521,4 @@ class draft03_litetask():
 
 
 if __name__ == '__main__':
-    draft03_litetask().run("")
+    draft03_lesson().run("")
