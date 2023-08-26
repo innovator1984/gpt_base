@@ -10,10 +10,10 @@
 # !pip install -U openai-whisper
 
 class draft00_litetask():
-    def __init__(self):
-        pass
+	def __init__(self):
+		pass
 
-    def run(self, msg):
+	def run(self, msg):
 		# ЧЕРНОВОЙ ВАРИАНТ ПО ЗАПУСКУ WHISPER LARGE V2 ИЗ COLAB
 
 		# from google.colab import drive
@@ -43,15 +43,15 @@ class draft00_litetask():
 				   'https://www.youtube.com/watch?v=Kx6pJDzqMtI&list=PLMquADD-aVhqY63PQl0DBETkI-cguhzk5&index=3&pp=iAQB']
 		import os
 		def my_mkdirs(folder):
-		  if os.path.exists(folder)==False:
-			os.makedirs(folder)
+			if os.path.exists(folder)==False:
+				os.makedirs(folder)
 		my_mkdirs('/content/tmp/')
 		output_folder = '/content/drive/My Drive/kia/ambient20/'
 		my_mkdirs(output_folder)
 
 		# download youtube videos
 		for ind,url in enumerate(yt_urls):
-		  !youtube-dl $url -f 'bestaudio[ext=m4a]' -o 'tmp/%(title)s.m4a'
+			os.system(f"youtube-dl {url} -f 'bestaudio[ext=m4a]' -o 'tmp/%(title)s.m4a'")
 		# !youtube-dl https://www.youtube.com/watch?v=Mhi6Lb52ZbM -f 'bestaudio[ext=m4a]' -o tmp3.m4a
 
 		youtube_files = []
@@ -59,11 +59,11 @@ class draft00_litetask():
 		import glob
 		files = glob.glob('/content/tmp/*')
 		for file in files:
-		  out_file = f'{output_folder}{file[13:-3]}.mp3'
-		  file = file.replace(' ','\ ')
-		  out_file = out_file.replace(' ','\ ')
-		  youtube_files.append(out_file)
-		  !ffmpeg -i $file -vn -ab 128k -ar 44100 -y $out_file
+			out_file = f'{output_folder}{file[13:-3]}.mp3'
+			file = file.replace(' ','\ ')
+			out_file = out_file.replace(' ','\ ')
+			youtube_files.append(out_file)
+			os.system("ffmpeg -i {file} -vn -ab 128k -ar 44100 -y {out_file}")
 
 		# README https://github.com/Vaibhavs10/fast-whisper-finetuning/blob/main/Whisper_w_PEFT.ipynb
 
@@ -129,12 +129,12 @@ class draft00_litetask():
 		We can verify that we've been assigned a GPU and view its specifications:
 		"""
 
-		gpu_info = !nvidia-smi
+		gpu_info = os.popen('nvidia-smi').read()
 		gpu_info = '\n'.join(gpu_info)
 		if gpu_info.find('failed') >= 0:
-		  print('Not connected to a GPU')
+			print('Not connected to a GPU')
 		else:
-		  print(gpu_info)
+			print(gpu_info)
 
 		"""Alrighty! Let's configure our environment to ensure it uses the GPU provided by Colab to us."""
 
@@ -535,7 +535,7 @@ class draft00_litetask():
 		# FIXME [{'text': ' Mr. Quilter is the apostle of the middle classes and we are glad to welcome his gospel.',
 		# FIXME   'timestamp': (0.0, 5.44)}]
 
-		!mkdir -p /content/drive/LARGE_V2
+		os.system("mkdir -p /content/drive/LARGE_V2")
 
 		"""## ОШИБКА - СЕАНС ПРЕКРАЩЕН ИЗ-ЗА НЕХВАТКИ ОЗУ"""
 
@@ -713,3 +713,6 @@ class draft00_litetask():
 
 		Don't forget to tweet your results and tag us! [@huggingface](https://twitter.com/huggingface) and [@reach_vb](https://twitter.com/reach_vb) ❤️
 		"""
+
+if __name__ == '__main__':
+	draft00_litetask().run("")
